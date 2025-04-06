@@ -3,9 +3,9 @@
 	height: 50px;
 	display: flex;
 	align-items: center;
-  justify-content: center;
 	padding: 0 20px;
 	position: relative;
+	justify-content: center;
 }
 
 .username {
@@ -20,7 +20,11 @@
 	color: #fff;
 	background: #111;
 	cursor: pointer;
-	position: relative;
+	position: fixed;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	top: unset;
 	z-index: 0;
 	border-radius: 10px;
 	position: absolute;
