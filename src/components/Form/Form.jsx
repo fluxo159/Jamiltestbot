@@ -9,7 +9,6 @@ const Form = () => {
 	const [phoneError, setPhoneError] = useState('')
 	const { tg } = useTelegram()
 
-
 	const validateUzbekPhone = phone => {
 		const regex = /^(?:\+998|998|0)(90|91|93|94|95|97|98|99|33|88|77)[0-9]{7}$/
 		return regex.test(phone)
@@ -31,7 +30,6 @@ const Form = () => {
 		}
 	}, [onSendData, tg])
 
-  
 	useEffect(() => {
 		tg.MainButton.setParams({
 			text: 'Отправить данные',
@@ -60,7 +58,7 @@ const Form = () => {
 		setPhoneNumber(value)
 
 		if (value && !validateUzbekPhone(value)) {
-			setPhoneError('Введите узбекский номер (например: 90-123-45-67)')
+			setPhoneError('Введите узбекский номер (например: +998338007011)')
 		} else {
 			setPhoneError('')
 		}
