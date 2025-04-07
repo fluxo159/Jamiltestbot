@@ -15,6 +15,18 @@
   margin: 0 0 70px;
 }
 
+.form h4 {
+  font-size: 20px;
+  padding-bottom: 15px;
+  opacity: 80%;
+}
+.ulText {
+  font-size: 17px;
+  padding-bottom: 20px;
+  list-style-type: none;
+  opacity: 80%;
+}
+
 .input {
     width: 100%;
     height: 50px;
