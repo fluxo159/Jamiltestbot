@@ -1,66 +1,75 @@
-/* Основные цвета Telegram */
+/* Корректные переменные Telegram WebApp */
 :root {
-  --tg-blue: #0088cc;          /* Основной синий цвет Telegram */
-  --tg-dark-blue: #17212b;     /* Темно-синий (для фона) */
-  --tg-light-blue: #2ea6ff;    /* Светло-голубой (акцентный) */
-  --tg-white: #ffffff;         /* Белый */
-  --tg-light-gray: #f5f5f5;    /* Светло-серый */
-  --tg-gray: #e1e1e1;         /* Серый */
-  --tg-dark-gray: #6b7b8a;     /* Темно-серый */
-  --tg-black: #000000;         /* Черный */
+  --tg-theme-bg-color: #ffffff; /* Фон интерфейса */
+  --tg-theme-text-color: #000000; /* Основной текст */
+  --tg-theme-hint-color: #707579; /* Вторичный текст */
+  --tg-theme-link-color: #0088cc; /* Ссылки */
+  --tg-theme-button-color: #2481cc; /* Цвет кнопок */
+  --tg-theme-button-text-color: #ffffff; /* Текст кнопок */
+  --tg-theme-secondary-bg-color: #f4f4f5; /* Вторичный фон */
+}
+
+body {
+  background: var(--tg-theme-secondary-bg-color);
+  color: var(--tg-theme-text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .content {
   width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 30px 0;
-  background-color: var(--tg-light-gray);
+  padding: 20px 15px;
+  background: var(--tg-theme-secondary-bg-color);
 }
 
 .furniture {
   width: 100%;
-  height: 330px;
+  height: auto;
   display: grid;
-  margin-top: 30px;
-  background-color: var(--tg-white);
+  margin-top: 20px;
+  background-color: var(--tg-theme-bg-color);
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  border: 1px solid var(--tg-gray);
+  border: 1px solid var(--tg-theme-secondary-bg-color);
 }
 
 .furniture h2 {
-  font-size: 20px;
-  color: var(--tg-dark-blue);
-  padding: 10px 15px;
+  font-size: 18px;
+  color: var(--tg-theme-text-color);
+  padding: 12px 15px 8px;
+  margin: 0;
 }
 
 .furniture_button {
-  width: 55%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  border-radius: 10px;
+  gap: 10px;
   padding: 0 15px 15px;
 }
 
 .furniture button {
-  width: 80px;
-  border-radius: 10px;
+  flex: 1;
+  min-width: 80px;
+  border-radius: 8px;
   border: none;
-  padding: 8px 0;
+  padding: 10px 0;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .furniture button:first-child {
-  background-color: var(--tg-light-blue);
-  color: var(--tg-white);
+  background: var(--tg-theme-secondary-bg-color);
+  color: var(--tg-theme-button-color);
 }
 
 .furniture button:last-child {
-  background-color: var(--tg-blue);
-  color: var(--tg-white);
+  background: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
 }
 
 .furniture button:hover {
@@ -70,7 +79,7 @@
 
 .furniture img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
 }
 
@@ -81,91 +90,96 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
-  background: var(--tg-white);
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 800px;
+  background: var(--tg-theme-bg-color);
+  padding: 25px;
+  border-radius: 14px;
+  max-width: 500px;
   width: 90%;
-  max-height: 90vh;
+  max-height: 85vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .modal-close {
   position: absolute;
   top: 15px;
   right: 15px;
-  font-size: 24px;
+  font-size: 22px;
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--tg-dark-gray);
+  color: var(--tg-theme-hint-color);
   transition: color 0.2s;
+  padding: 5px;
 }
 
 .modal-close:hover {
-  color: var(--tg-blue);
+  color: var(--tg-theme-text-color);
 }
 
 .modal-content img {
   width: 100%;
-  max-height: 300px;
+  max-height: 250px;
   object-fit: contain;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border-radius: 8px;
 }
 
 .modal-body {
-  margin-top: 20px;
-  color: var(--tg-dark-blue);
+  margin-top: 15px;
+  color: var(--tg-theme-text-color);
+  line-height: 1.5;
 }
 
 .specs-container {
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .spec-row {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--tg-gray);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--tg-theme-secondary-bg-color);
 }
 
 .spec-name {
-  color: var(--tg-dark-blue);
+  color: var(--tg-theme-hint-color);
   font-weight: 500;
 }
 
 .spec-value {
-  color: var(--tg-blue);
+  color: var(--tg-theme-text-color);
   font-weight: 500;
 }
 
 /* Адаптивность */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .content {
-    padding: 20px 15px 0;
-  }
-  
-  .furniture {
-    height: auto;
+    padding: 15px 10px;
   }
   
   .furniture_button {
-    width: 60%;
-    padding: 10px 10px 10px;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 10px 10px;
+  }
+  
+  .furniture button {
+    width: 100%;
   }
   
   .modal-content {
-    padding: 20px;
+    padding: 20px 15px;
+    width: 95%;
   }
 }
