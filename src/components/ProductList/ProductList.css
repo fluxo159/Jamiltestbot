@@ -1,0 +1,96 @@
+.content {
+	width: 100%;
+	margin: 0 auto;
+	padding: 40px 30px 0;
+}
+
+.furniture {
+	width: 100%;
+	height: 330px;
+	display: grid;
+  margin-top: 30px;
+}
+.furniture h2 {
+	font-size: 20px;
+}
+.furniture_button {
+	width: 55%;
+	display: flex;
+	justify-content: space-between;
+	border-radius: 10px;
+	border: none;
+}
+.furniture button {
+	width: 80px;
+	border-radius: 10px;
+	border: none;
+}
+.furniture img {
+	width: 100%;
+}
+
+/* Модальное окно */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-content img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.modal-body {
+  margin-top: 20px;
+}
+
+.specs-container {
+  margin: 20px 0;
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.spec-name {
+  color: #666;
+}
+
+.spec-value {
+  color: #333;
+  font-weight: 500;
+}
