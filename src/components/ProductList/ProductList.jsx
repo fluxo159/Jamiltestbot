@@ -5,11 +5,12 @@ import Limoges from '../../assets/img/Limoges.jpg'
 import Valet from '../../assets/img/Valet.jpg'
 import Lance from '../../assets/img/Lance.jpg'
 import Calais from '../../assets/img/Calais.jpg'
-
+import { useNavigate } from 'react-router-dom'
 
 const ProductList = () => {
 	const [modalOpen, setModalOpen] = useState(false)
 	const [currentProduct, setCurrentProduct] = useState(null)
+	const navigate = useNavigate()
 
 	const products = [
 		{
@@ -189,7 +190,9 @@ const ProductList = () => {
 						<button onClick={() => handleDetailsClick(product)}>
 							подробнее
 						</button>
-						<button>Заказать</button>
+						<button onClick={() => navigate('../Basket', {state: { product }})}>
+							Заказать
+						</button>
 					</div>
 				</div>
 			))}
