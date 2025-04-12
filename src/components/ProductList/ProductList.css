@@ -113,8 +113,8 @@ body {
 .modal-close {
   position: absolute;
   top: 15px;
-  right: 15px;
-  font-size: 35px;
+  right: 20px;
+  font-size: 40px;
   background: none;
   border: none;
   cursor: pointer;
@@ -133,6 +133,7 @@ body {
   object-fit: contain;
   margin-bottom: 15px;
   border-radius: 8px;
+  
 }
 
 .modal-body {
@@ -161,6 +162,27 @@ body {
   color: var(--tg-theme-text-color);
   font-weight: 500;
 }
+
+
+.modal-carousel {
+  width: 330px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  gap: 20px;
+}
+.modal-carousel > img {
+  scroll-snap-align: center;
+}
+.modal-carousel img {
+  width: 150px;
+  height: 100px;
+}
+
+/* Стили ТОЛЬКО для модалки заказа */
+
+
+
 
 /* Адаптивность */
 @media (max-width: 480px) {

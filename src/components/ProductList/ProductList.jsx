@@ -1,14 +1,22 @@
 import React, { useState } from 'react'
 import './ProductList.css'
-import MayanImg from '../../assets/img/Mayan.jpg'
-import Limoges from '../../assets/img/Limoges.jpg'
-import Valet from '../../assets/img/Valet.jpg'
-import Lance from '../../assets/img/Lance.jpg'
-import Calais from '../../assets/img/Calais.jpg'
+import {
+	Mayan,
+	Mayan1,
+	Mayan2,
+	Mayan3,
+	Mayan4,
+	Limoges,
+	Valet,
+	Lance,
+	Calais,
+	Mayan5,
+} from '../../utils/eExport.js'
 import { useNavigate } from 'react-router-dom'
 
 const ProductList = () => {
 	const [modalOpen, setModalOpen] = useState(false)
+	const [orderModalOpen, setOrderModalOpen] = useState(false)
 	const [currentProduct, setCurrentProduct] = useState(null)
 	const navigate = useNavigate()
 
@@ -16,13 +24,13 @@ const ProductList = () => {
 		{
 			id: 1,
 			name: 'Mayen',
-			image: MayanImg,
+			image: Mayan,
 			description: [
 				'Кухня Mayen — современный дизайн с акцентом на качество:',
-				'• Матовые серые фасады из МДФ с акриловым покрытием',
-				'• Деревянные декоративные элементы ручной работы',
-				'• Мраморный фартук с уникальным природным узором',
-				'• Эргономичная планировка и продуманное освещение',
+				'• оптимальные габариты гарнитура идеально подходят для кухонь любых размеров;',
+				'• удобное расположение шкафов и ящиков для рационального использования пространства;',
+				'• вместительность: достаточно места для хранения посуды, продуктов и кухонных принадлежностей;',
+				'• современный дизайн: темно-серый цвет фасадов добавляет элегантности и подчеркивает стиль интерьера',
 			],
 			specs: [
 				{ name: 'Ширина', value: '201 см' },
@@ -38,7 +46,6 @@ const ProductList = () => {
 				{ name: 'Цвет фасада', value: 'серый' },
 				{ name: 'Цвет каркаса', value: 'дерево' },
 				{ name: 'Фурнитура:', value: 'Blue, Hettich' },
-				// ... другие характеристики
 			],
 		},
 		{
@@ -162,8 +169,19 @@ const ProductList = () => {
 		document.body.style.overflow = 'hidden'
 	}
 
+	const handleOrderClick = product => {
+		setCurrentProduct(product)
+		setOrderModalOpen(true)
+		document.body.style.overflow = 'hidden'
+	}
+
 	const closeModal = () => {
 		setModalOpen(false)
+		document.body.style.overflow = 'auto'
+	}
+
+	const closeOrderModal = () => {
+		setOrderModalOpen(false)
 		document.body.style.overflow = 'auto'
 	}
 
@@ -180,6 +198,27 @@ const ProductList = () => {
 		</>
 	)
 
+	const OrderModal = () => (
+		<div className='modal-overlay'>
+			<div className='modal-content'>
+				<button className='modal-close' onClick={closeOrderModal}>
+					×
+				</button>
+				<h2>Оформить заказ "{currentProduct.name}"</h2>
+				<div className='modal-body'>
+				<p>заказать</p>
+					<br />
+					<div className='contact-info'>
+						<input type='text' />
+						<input type='tel' />
+					</div>
+					<br />
+					<button></button>
+				</div>
+			</div>
+		</div>
+	)
+
 	return (
 		<div className='content'>
 			{products.map(product => (
@@ -190,9 +229,7 @@ const ProductList = () => {
 						<button onClick={() => handleDetailsClick(product)}>
 							подробнее
 						</button>
-						<button onClick={() => navigate('../Basket', {state: { product }})}>
-							Заказать
-						</button>
+						<button onClick={() => handleOrderClick(product)}>Заказать</button>
 					</div>
 				</div>
 			))}
@@ -207,6 +244,13 @@ const ProductList = () => {
 							src={currentProduct.image}
 							alt={`Гарнитур ${currentProduct.name}`}
 						/>
+						<div className='modal-carousel'>
+							<img src={Mayan1} alt='' />
+							<img src={Mayan2} alt='' />
+							<img src={Mayan3} alt='' />
+							<img src={Mayan4} alt='' />
+							<img src={Mayan5} alt='' />
+						</div>
 						<h2>Угловой кухонный гарнитур "{currentProduct.name}"</h2>
 						<div className='modal-body'>
 							{currentProduct.description.map((text, index) => (
@@ -221,9 +265,10 @@ const ProductList = () => {
 					</div>
 				</div>
 			)}
+
+			{orderModalOpen && currentProduct && <OrderModal />}
 		</div>
 	)
 }
 
 export default ProductList
-// button должен перекидовать в регистрацию

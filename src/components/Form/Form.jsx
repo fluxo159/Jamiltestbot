@@ -35,7 +35,7 @@ const Form = () => {
 			text: 'Отправить данные',
 		})
 	}, [tg])
-
+// 
 	useEffect(() => {
 		const isValidPhone = validateUzbekPhone(phoneNumber)
 		if (!surName || !userName || !isValidPhone) {
@@ -44,7 +44,7 @@ const Form = () => {
 			tg.MainButton.show()
 		}
 	}, [userName, surName, phoneNumber, tg])
-
+// 
 	const onChangeUserName = e => {
 		setUserName(e.target.value)
 	}
